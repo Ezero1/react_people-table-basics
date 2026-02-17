@@ -15,6 +15,7 @@ export const PeoplePage: React.FC = () => {
     getPeople()
       .then(loadedPeople => {
         setPeople(loadedPeople);
+        setHasError(false);
       })
       .catch(() => {
         setHasError(true);

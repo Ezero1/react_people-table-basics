@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames'; // Не забудь цей імпорт
+import classNames from 'classnames';
 import { Person } from '../types/Person';
 
 type Props = {
+  person?: Person;
   name: string;
-  people: Person[];
 };
 
-export const PersonLink: React.FC<Props> = ({ name, people }) => {
-  const person = people.find(p => p.name === name);
-
+export const PersonLink: React.FC<Props> = ({ person, name }) => {
   if (!person) {
     return <span>{name}</span>;
   }
