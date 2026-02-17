@@ -29,9 +29,13 @@ export const PeopleTable: React.FC<Props> = ({ people }) => {
 
       <tbody>
         {people.map(person => {
-          // Шукаємо маму і тата ЗАЗДАЛЕГІДЬ
-          const mother = people.find(p => p.name === person.motherName);
-          const father = people.find(p => p.name === person.fatherName);
+          const mother = person.motherName
+            ? people.find(p => p.name === person.motherName)
+            : undefined;
+
+          const father = person.fatherName
+            ? people.find(p => p.name === person.fatherName)
+            : undefined;
 
           return (
             <tr
@@ -42,7 +46,7 @@ export const PeopleTable: React.FC<Props> = ({ people }) => {
               })}
             >
               <td>
-                <PersonLink person={person} name={person.name} />
+                <PersonLink person={person} />
               </td>
 
               <td>{person.sex}</td>
@@ -50,11 +54,24 @@ export const PeopleTable: React.FC<Props> = ({ people }) => {
               <td>{person.died}</td>
 
               <td>
-                <PersonLink person={mother} name={person.motherName || '-'} />
+                {!person.motherName ? (
+                  '-'
+                ) : mother ? (
+                  <PersonLink person={mother} />
+                ) : (
+                  person.motherName
+                )}
               </td>
 
+              {/* ЛОГІКА ДЛЯ ТАТА */}
               <td>
-                <PersonLink person={father} name={person.fatherName || '-'} />
+                {!person.fatherName ? (
+                  '-'
+                ) : father ? (
+                  <PersonLink person={father} />
+                ) : (
+                  person.fatherName
+                )}
               </td>
             </tr>
           );

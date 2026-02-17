@@ -4,15 +4,10 @@ import classNames from 'classnames';
 import { Person } from '../types/Person';
 
 type Props = {
-  person?: Person;
-  name: string;
+  person: Person;
 };
 
-export const PersonLink: React.FC<Props> = ({ person, name }) => {
-  if (!person) {
-    return <span>{name}</span>;
-  }
-
+export const PersonLink: React.FC<Props> = ({ person }) => {
   return (
     <Link
       to={`/people/${person.slug}`}
@@ -20,7 +15,7 @@ export const PersonLink: React.FC<Props> = ({ person, name }) => {
         'has-text-danger': person.sex === 'f',
       })}
     >
-      {name}
+      {person.name}
     </Link>
   );
 };

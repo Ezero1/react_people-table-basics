@@ -1,5 +1,5 @@
 import { HomePage } from './page/HomePage';
-import { NavBar } from './components/Navbar';
+import { Navbar } from './components/Navbar';
 import { NotFoundPage } from './page/NotFoundPage';
 import { PeoplePage } from './page/PeoplePage';
 import './App.scss';
@@ -7,7 +7,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 export const App = () => (
   <div data-cy="app">
-    <NavBar />
+    <Navbar />
     <main className="section">
       <div className="container">
         <Routes>

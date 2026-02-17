@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const getLinkClass = ({ isActive }: { isActive: boolean }) =>
   classNames('navbar-item', { 'has-background-grey-lighter': isActive });
 
-export const NavBar: React.FC = () => (
+export const Navbar: React.FC = () => (
   <nav
     data-cy="nav"
     className="navbar is-fixed-top has-shadow"
